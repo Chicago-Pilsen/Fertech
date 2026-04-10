@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fertech — Professional Computer Repair | Chicago, IL</title>
+<meta name="description" content="Chicago's trusted computer repair expert. 20+ years experience. Virus removal, laptop & desktop repair, data recovery. Same-day service available." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Lato:wght@300;400;700&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet" />
+<style>
+/* ═══════════════════════════════════════════════════════
+   FERTECH — PROFESSIONAL COMPUTER REPAIR
+   Clean, trustworthy, bold. Like a skilled specialist.
+═══════════════════════════════════════════════════════ */
+
+:root {
+  --navy:    #0b1120;
+  --navy2:   #111827;
+  --navy3:   #1a2235;
+  --blue:    #1d6fe8;
+  --blue2:   #1557c0;
+  --cyan:    #06b6d4;
+  --white:   #ffffff;
+  --off:     #f0f4f8;
+  --gray:    #8899aa;
+  --light:   #ccd6e0;
+  --border:  rgba(255,255,255,0.08);
+  --gold:    #f59e0b;
+
+  --f-head: 'Oswald', sans-serif;
+  --f-body: 'Lato', sans-serif;
+  --f-mono: 'Source Code Pro', monospace;
+
+  --r: 10px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.35);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { background: var(--navy); color: var(--white); font-family: var(--f-body); line-height: 1.65; overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+ul { list-style: none; }
+
+.wrap { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+
+/* ── UTILITY ── */
+.tag {
+  display: inline-block;
+  font-family: var(--f-mono);
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 14px;
+}
+.section-title {
+  font-family: var(--f-head);
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 1px;
+  color: var(--white);
+  margin-bottom: 18px;
+}
+.section-sub {
+  font-size: 17px; color: var(--gray); line-height: 1.75;
+  max-width: 540px;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--f-head); font-size: 17px; font-weight: 500;
+  letter-spacing: 1px;
+  padding: 15px 34px; border-radius: var(--r);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+.btn-blue {
+  background: var(--blue); color: var(--white);
+}
+.btn-blue:hover { background: var(--blue2); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(29,111,232,0.4); }
+.btn-outline {
+  border: 2px solid rgba(255,255,255,0.2); color: var(--white);
+}
+.btn-outline:hover { border-color: var(--cyan); color: var(--cyan); }
+
+/* ── SCROLL ANIMATIONS ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.on { opacity: 1; transform: translateY(0); }
+
+/* ═══ NAV ═══════════════════════════════════════════ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  padding: 18px 0;
+  transition: all 0.3s ease;
+}
+.nav.stuck {
+  background: rgba(11,17,32,0.97);
+  backdrop-filter: blur(16px);
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.4);
+}
+.nav-inner {
+  display: flex; align-items: center; gap: 24px;
+}
+.nav-logo {
+  font-family: var(--f-head);
+  font-size: 26px; font-weight: 700; letter-spacing: 3px;
+  margin-right: auto;
+}
+.nav-logo span { color: var(--blue); }
+.nav-links {
+  display: flex; gap: 4px;
+}
+.nav-links a {
+  font-family: var(--f-head); font-size: 14px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--gray);
+  padding: 8px 14px; border-radius: 6px;
+  transition: all 0.2s;
+}
+.nav-links a:hover { color: var(--white); background: var(--navy3); }
+.nav-phone {
+  font-family: var(--f-head); font-size: 16px; font-weight: 600;
+  letter-spacing: 1px;
+  background: var(--blue);
+  color: var(--white);
+  padding: 10px 22px; border-radius: var(--r);
+  transition: all 0.2s;
+}
+.nav-phone:hover { background: var(--blue2); }
+.nav-ham { display: none; color: var(--white); padding: 6px; }
+.nav-ham svg { width: 26px; height: 26px; }
+
+/* ═══ HERO ═══════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 120px 0 80px;
+}
+
+/* Diagonal split background */
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(135deg, var(--navy) 55%, var(--navy2) 55%);
+  z-index: 0;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 45%; height: 100%;
+  background: linear-gradient(160deg, #0f1e3d 0%, #0b1120 100%);
+  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+  z-index: 0;
+}
+
+/* Grid texture */
+.hero-grid {
+  position: absolute; inset: 0; z-index: 1;
+  background-image:
+    linear-gradient(rgba(29,111,232,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(29,111,232,0.04) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.hero-inner {
+  position: relative; z-index: 2;
+  display: flex; align-items: center; gap: 60px;
+}
+
+.hero-text { flex: 1; }
+
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(29,111,232,0.12);
+  border: 1px solid rgba(29,111,232,0.3);
+  color: var(--cyan);
+  font-family: var(--f-mono); font-size: 12px;
+  padding: 8px 16px; border-radius: 100px;
+  margin-bottom: 28px;
+  animation: fadeDown 0.8s ease both;
+}
+.pulse {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--cyan);
+  animation: pulseAnim 2s infinite;
+}
+@keyframes pulseAnim {
+  0%,100% { opacity:1; box-shadow: 0 0 0 0 rgba(6,182,212,0.5); }
+  50% { opacity:0.8; box-shadow: 0 0 0 6px rgba(6,182,212,0); }
+}
+
+.hero-h1 {
+  font-family: var(--f-head);
+  font-size: clamp(52px, 7vw, 90px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+  animation: fadeUp 0.9s ease 0.1s both;
+}
+.hero-h1 em { color: var(--blue); font-style: normal; }
+.hero-h1 .line2 {
+  display: block;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255,255,255,0.25);
+}
+
+.hero-p {
+  font-size: 18px; color: var(--gray); line-height: 1.75;
+  max-width: 480px; margin-bottom: 36px;
+  animation: fadeUp 0.9s ease 0.2s both;
+}
+.hero-p strong { color: var(--white); font-weight: 700; }
+
+.hero-ctas {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  animation: fadeUp 0.9s ease 0.3s both;
+  margin-bottom: 52px;
+}
+
+.hero-badges {
+  display: flex; gap: 24px; flex-wrap: wrap;
+  animation: fadeUp 0.9s ease 0.4s both;
+}
+.hero-badge-item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 14px; color: var(--light);
+}
+.hero-badge-item .dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--blue); flex-shrink: 0;
+}
+
+/* Right side panel */
+.hero-panel {
+  flex: 0 0 380px;
+  animation: fadeLeft 1s ease 0.4s both;
+}
+@keyframes fadeLeft { from{opacity:0;transform:translateX(30px)} to{opacity:1;transform:translateX(0)} }
+
+.hero-card {
+  background: var(--navy3);
+  border: 1px solid rgba(29,111,232,0.25);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow), 0 0 60px rgba(29,111,232,0.1);
+}
+.hero-card-header {
+  background: var(--blue);
+  padding: 16px 24px;
+  display: flex; align-items: center; gap: 12px;
+}
+.hero-card-header .dots { display: flex; gap: 6px; }
+.hero-card-header .dots span {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+}
+.hero-card-title {
+  font-family: var(--f-mono); font-size: 12px;
+  color: rgba(255,255,255,0.85); letter-spacing: 2px; margin-left: auto;
+}
+.hero-card-body { padding: 28px; }
+
+.stat-row {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px; background: var(--border);
+  border-radius: 10px; overflow: hidden;
+  margin-bottom: 24px;
+}
+.stat-cell {
+  background: var(--navy2);
+  padding: 20px 16px; text-align: center;
+}
+.stat-n {
+  font-family: var(--f-head);
+  font-size: 34px; font-weight: 700;
+  color: var(--blue);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-l {
+  font-size: 11px; color: var(--gray);
+  letter-spacing: 0.5px; line-height: 1.3;
+}
+
+.service-list { display: flex; flex-direction: column; gap: 10px; }
+.service-list-item {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--navy2);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 12px 16px;
+  font-size: 14px; color: var(--light);
+  transition: all 0.2s;
+}
+.service-list-item:hover { border-color: rgba(29,111,232,0.4); color: var(--white); }
+.service-list-item .ico {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: rgba(29,111,232,0.15);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--blue); flex-shrink: 0;
+}
+.service-list-item .ico svg { width: 16px; height: 16px; }
+.service-list-item .badge-sm {
+  margin-left: auto;
+  font-size: 9px; font-weight: 700;
+  padding: 3px 7px; border-radius: 4px;
+  background: rgba(245,158,11,0.15); color: var(--gold);
+  letter-spacing: 1px;
+}
+.hero-card-foot {
+  padding: 16px 28px;
+  border-top: 1px solid var(--border);
+  font-family: var(--f-mono); font-size: 11px; color: var(--gray);
+  display: flex; align-items: center; gap: 8px;
+}
+.status-dot { width: 6px; height: 6px; border-radius: 50%; background: #22c55e; animation: pulseAnim 2s infinite; }
+
+/* ═══ TRUST STRIP ════════════════════════════════════ */
+.trust {
+  background: var(--navy2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 0;
+}
+.trust-inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.trust-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 24px 28px;
+  border-right: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.trust-item:last-child { border-right: none; }
+.trust-item:hover { background: var(--navy3); }
+.trust-item .t-ico {
+  width: 42px; height: 42px; border-radius: 10px;
+  background: rgba(29,111,232,0.12);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--blue); flex-shrink: 0;
+}
+.trust-item .t-ico svg { width: 20px; height: 20px; }
+.trust-item .t-text strong {
+  display: block;
+  font-family: var(--f-head); font-size: 15px; letter-spacing: 0.5px;
+  color: var(--white); margin-bottom: 2px;
+}
+.trust-item .t-text span { font-size: 13px; color: var(--gray); }
+
+/* ═══ SERVICES ═══════════════════════════════════════ */
+.services { padding: 100px 0; background: var(--navy); }
+.services-head { text-align: center; margin-bottom: 60px; }
+.services-head .section-sub { margin: 0 auto; }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.svc-card {
+  background: var(--navy2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 32px 28px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+.svc-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.svc-card:hover {
+  border-color: rgba(29,111,232,0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(29,111,232,0.1);
+}
+.svc-card:hover::before { opacity: 1; }
+
+.svc-badge {
+  position: absolute; top: 20px; right: 20px;
+  font-family: var(--f-mono); font-size: 9px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 4px 9px; border-radius: 4px;
+}
+.svc-badge.hot { background: rgba(29,111,232,0.15); color: var(--cyan); border: 1px solid rgba(6,182,212,0.2); }
+.svc-badge.fast { background: rgba(245,158,11,0.12); color: var(--gold); border: 1px solid rgba(245,158,11,0.2); }
+
+.svc-icon {
+  width: 52px; height: 52px; border-radius: 12px;
+  background: rgba(29,111,232,0.1);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--blue); margin-bottom: 20px;
+  transition: background 0.2s;
+}
+.svc-card:hover .svc-icon { background: rgba(29,111,232,0.2); }
+.svc-icon svg { width: 26px; height: 26px; }
+.svc-title {
+  font-family: var(--f-head);
+  font-size: 20px; font-weight: 600; letter-spacing: 0.5px;
+  color: var(--white); margin-bottom: 10px;
+}
+.svc-desc { font-size: 14px; color: var(--gray); line-height: 1.7; }
+
+/* ═══ HOW IT WORKS ═══════════════════════════════════ */
+.process { padding: 100px 0; background: var(--navy2); }
+.process-head { margin-bottom: 70px; }
+
+.process-track {
+  position: relative;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+.process-track::after {
+  content: '';
+  position: absolute;
+  top: 36px; left: 10%; right: 10%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--blue), var(--cyan), var(--blue), transparent);
+  z-index: 0;
+}
+
+.step {
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; padding: 0 20px;
+  position: relative; z-index: 1;
+}
+.step-num {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: var(--navy);
+  border: 2px solid var(--blue);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--f-head); font-size: 26px; font-weight: 700;
+  color: var(--blue); margin-bottom: 24px;
+  box-shadow: 0 0 0 6px rgba(29,111,232,0.08);
+  transition: all 0.3s;
+}
+.step:hover .step-num {
+  background: var(--blue); color: var(--white);
+  box-shadow: 0 0 0 8px rgba(29,111,232,0.15), 0 8px 24px rgba(29,111,232,0.4);
+}
+.step-title {
+  font-family: var(--f-head); font-size: 18px; font-weight: 600;
+  letter-spacing: 0.5px; color: var(--white); margin-bottom: 10px;
+}
+.step-desc { font-size: 14px; color: var(--gray); line-height: 1.65; }
+
+/* ═══ ABOUT ══════════════════════════════════════════ */
+.about { padding: 100px 0; background: var(--navy); }
+.about-inner { display: flex; gap: 80px; align-items: center; }
+
+.about-card {
+  flex: 0 0 340px;
+  background: var(--navy3);
+  border: 1px solid rgba(29,111,232,0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.about-card-top {
+  background: linear-gradient(135deg, #0f2d6b 0%, #0b1d4a 100%);
+  padding: 40px 32px;
+  text-align: center;
+  position: relative;
+}
+.about-card-top::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(29,111,232,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(29,111,232,0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.about-avatar {
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--f-head); font-size: 38px; font-weight: 700;
+  color: var(--white); margin: 0 auto 16px;
+  position: relative; z-index: 1;
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.08), 0 8px 32px rgba(29,111,232,0.5);
+}
+.about-name {
+  font-family: var(--f-head); font-size: 24px; font-weight: 700;
+  letter-spacing: 1px; color: var(--white);
+  position: relative; z-index: 1;
+  margin-bottom: 6px;
+}
+.about-role {
+  font-size: 13px; color: var(--cyan); letter-spacing: 2px; text-transform: uppercase;
+  font-family: var(--f-mono);
+  position: relative; z-index: 1;
+}
+.about-card-body { padding: 28px 32px; }
+.about-skills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.skill-tag {
+  font-size: 12px; font-weight: 700;
+  padding: 5px 12px; border-radius: 6px;
+  background: rgba(29,111,232,0.1);
+  border: 1px solid rgba(29,111,232,0.2);
+  color: var(--light);
+}
+.about-rating {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--navy2); border-radius: 10px;
+  padding: 14px 18px;
+}
+.stars-row { display: flex; gap: 3px; }
+.stars-row svg { width: 16px; height: 16px; color: var(--gold); fill: var(--gold); }
+.about-rating-text { font-size: 13px; color: var(--gray); }
+.about-rating-text strong { color: var(--white); }
+
+.about-content { flex: 1; }
+.about-content .section-sub { max-width: 100%; margin-bottom: 16px; }
+.about-content p { font-size: 16px; color: var(--gray); line-height: 1.8; margin-bottom: 16px; }
+.about-list { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; }
+.about-list-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  font-size: 15px; color: var(--light); line-height: 1.5;
+}
+.check {
+  width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0; margin-top: 1px;
+  background: rgba(29,111,232,0.12);
+  border: 1px solid rgba(29,111,232,0.3);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--cyan);
+}
+.check svg { width: 11px; height: 11px; stroke-width: 3; }
+
+/* ═══ REVIEWS ════════════════════════════════════════ */
+.reviews { padding: 100px 0; background: var(--navy2); }
+.reviews-head { text-align: center; margin-bottom: 60px; }
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.review-card {
+  background: var(--navy);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 32px;
+  transition: all 0.3s;
+}
+.review-card:hover {
+  border-color: rgba(29,111,232,0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+.review-stars { display: flex; gap: 4px; margin-bottom: 16px; }
+.review-stars svg { width: 18px; height: 18px; fill: var(--gold); color: var(--gold); }
+.review-text { font-size: 15px; color: var(--light); line-height: 1.75; margin-bottom: 24px; font-style: italic; }
+.review-author { display: flex; align-items: center; gap: 12px; }
+.review-av {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--f-head); font-size: 18px; font-weight: 700; color: var(--white);
+}
+.review-name { font-family: var(--f-head); font-size: 16px; letter-spacing: 0.5px; color: var(--white); }
+.review-loc { font-size: 13px; color: var(--gray); }
+
+/* ═══ CONTACT ════════════════════════════════════════ */
+.contact { padding: 100px 0; background: var(--navy); }
+.contact-inner { display: flex; gap: 80px; align-items: flex-start; }
+
+.contact-left { flex: 1; }
+.contact-left .section-sub { margin-bottom: 40px; }
+
+.contact-info-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 14px; margin-bottom: 32px;
+}
+.info-card {
+  background: var(--navy2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: block;
+}
+.info-card:hover { border-color: rgba(29,111,232,0.4); transform: translateY(-2px); }
+.info-card .i-ico {
+  width: 38px; height: 38px; border-radius: 9px;
+  background: rgba(29,111,232,0.12);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--blue); margin-bottom: 12px;
+}
+.info-card .i-ico svg { width: 18px; height: 18px; }
+.info-card .i-label { font-size: 11px; color: var(--gray); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+.info-card .i-val { font-family: var(--f-head); font-size: 16px; font-weight: 500; color: var(--white); letter-spacing: 0.5px; }
+
+.contact-note {
+  background: rgba(29,111,232,0.06);
+  border: 1px solid rgba(29,111,232,0.15);
+  border-radius: 12px; padding: 20px 24px;
+  font-size: 14px; color: var(--gray); line-height: 1.65;
+}
+.contact-note strong { color: var(--cyan); }
+
+/* Form */
+.contact-form-box {
+  flex: 0 0 460px;
+  background: var(--navy2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 40px;
+}
+.form-heading {
+  font-family: var(--f-head); font-size: 24px; font-weight: 700; letter-spacing: 1px;
+  color: var(--white); margin-bottom: 28px;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.fg { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+.fg label { font-size: 12px; font-weight: 700; color: var(--gray); letter-spacing: 1px; text-transform: uppercase; }
+.fg input, .fg textarea, .fg select {
+  background: var(--navy);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 13px 16px;
+  color: var(--white); font-size: 15px; font-family: var(--f-body);
+  transition: all 0.2s;
+  width: 100%; resize: none;
+  appearance: none;
+}
+.fg input:focus, .fg textarea:focus, .fg select:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(29,111,232,0.12);
+}
+.fg input::placeholder, .fg textarea::placeholder { color: rgba(136,153,170,0.5); }
+.fg select option { background: var(--navy2); }
+.form-submit {
+  width: 100%;
+  background: var(--blue);
+  color: var(--white);
+  font-family: var(--f-head); font-size: 18px; font-weight: 600; letter-spacing: 1px;
+  padding: 16px;
+  border-radius: var(--r);
+  transition: all 0.25s;
+  margin-top: 4px;
+}
+.form-submit:hover { background: var(--blue2); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(29,111,232,0.4); }
+.form-fine { text-align: center; font-size: 12px; color: var(--gray); margin-top: 12px; }
+
+/* Success state */
+.form-success {
+  display: none;
+  flex-direction: column; align-items: center;
+  text-align: center; padding: 40px;
+  gap: 16px;
+}
+.form-success.show { display: flex; }
+.form-success .s-ico {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: rgba(34,197,94,0.1); border: 2px solid rgba(34,197,94,0.3);
+  display: flex; align-items: center; justify-content: center;
+  color: #22c55e;
+}
+.form-success .s-ico svg { width: 32px; height: 32px; stroke-width: 3; }
+.form-success h3 { font-family: var(--f-head); font-size: 26px; color: var(--white); }
+.form-success p { font-size: 15px; color: var(--gray); }
+
+/* ═══ FOOTER ══════════════════════════════════════════ */
+.footer { background: var(--navy2); border-top: 1px solid var(--border); padding: 48px 0 32px; }
+.footer-inner {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 20px; text-align: center;
+}
+.footer-logo { font-family: var(--f-head); font-size: 28px; font-weight: 700; letter-spacing: 3px; }
+.footer-logo span { color: var(--blue); }
+.footer-tagline { font-size: 14px; color: var(--gray); }
+.footer-nav { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+.footer-nav a {
+  font-family: var(--f-head); font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--gray); padding: 6px 12px; border-radius: 6px;
+  transition: all 0.2s;
+}
+.footer-nav a:hover { color: var(--white); background: var(--navy3); }
+.footer-copy { font-size: 12px; color: rgba(136,153,170,0.5); }
+
+/* Mobile nav drawer */
+.drawer {
+  display: none;
+  position: fixed; top: 0; right: 0; bottom: 0;
+  width: 280px; z-index: 300;
+  background: var(--navy2);
+  border-left: 1px solid var(--border);
+  flex-direction: column;
+  padding: 80px 28px 40px;
+  gap: 8px;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+.drawer.open { transform: translateX(0); }
+.drawer a {
+  font-family: var(--f-head); font-size: 20px; font-weight: 500; letter-spacing: 1.5px;
+  color: var(--gray); padding: 12px 16px; border-radius: 8px;
+  transition: all 0.2s;
+}
+.drawer a:hover { color: var(--white); background: var(--navy3); }
+.drawer-phone {
+  margin-top: 20px;
+  background: var(--blue); color: var(--white);
+  text-align: center; padding: 14px; border-radius: var(--r);
+  font-family: var(--f-head); font-size: 18px; letter-spacing: 1px;
+}
+.overlay {
+  display: none; position: fixed; inset: 0; z-index: 250;
+  background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+}
+.overlay.show { display: block; }
+
+/* ═══ KEYFRAMES ═══════════════════════════════════════ */
+@keyframes fadeDown { from{opacity:0;transform:translateY(-14px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+
+/* ═══ RESPONSIVE ══════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-inner { gap: 40px; }
+  .hero-panel { flex: 0 0 320px; }
+  .process-track { grid-template-columns: repeat(2, 1fr); gap: 48px; }
+  .process-track::after { display: none; }
+  .about-inner { flex-direction: column; gap: 48px; }
+  .about-card { flex: none; width: 100%; max-width: 380px; }
+  .contact-inner { flex-direction: column; }
+  .contact-form-box { flex: none; width: 100%; }
+  .trust-inner { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .hero { padding: 100px 0 70px; }
+  .hero-inner { flex-direction: column; gap: 48px; }
+  .hero-panel { flex: none; width: 100%; }
+  .hero-card { width: 100%; }
+  .hero-h1 { font-size: 54px; }
+  .nav-links, .nav-phone { display: none; }
+  .nav-ham { display: flex; }
+  .drawer { display: flex; }
+  .services-grid { grid-template-columns: 1fr; }
+  .process-track { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .contact-info-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .trust-inner { grid-template-columns: 1fr; }
+  .trust-item { border-right: none; border-bottom: 1px solid var(--border); }
+  .trust-item:last-child { border-bottom: none; }
+  .hero-badges { gap: 16px; }
+}
+@media (max-width: 480px) {
+  .wrap { padding: 0 18px; }
+  .hero-h1 { font-size: 44px; }
+  .hero-ctas { flex-direction: column; }
+  .hero-ctas .btn { text-align: center; justify-content: center; }
+  .contact-form-box { padding: 28px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <div class="nav-logo">FER<span>TECH</span></div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:+17736802671" class="nav-phone">📞 (773) 680-2671</a>
+    <button class="nav-ham" id="hamBtn" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Drawer -->
+<div class="overlay" id="overlay"></div>
+<nav class="drawer" id="drawer">
+  <a href="#services" class="drawer-link">Services</a>
+  <a href="#process" class="drawer-link">Process</a>
+  <a href="#about" class="drawer-link">About</a>
+  <a href="#reviews" class="drawer-link">Reviews</a>
+  <a href="#contact" class="drawer-link">Contact</a>
+  <a href="tel:+17736802671" class="drawer-phone">📞 (773) 680-2671</a>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero" id="top">
+  <div class="hero-grid"></div>
+  <div class="wrap hero-inner">
+
+    <div class="hero-text">
+      <div class="hero-eyebrow">
+        <div class="pulse"></div>
+        Chicago's Trusted Computer Repair Expert
+      </div>
+
+      <h1 class="hero-h1">
+        YOUR DEVICE,<br>
+        <em>REPAIRED</em><br>
+        <span class="line2">PROPERLY.</span>
+      </h1>
+
+      <p class="hero-p">
+        <strong>20+ years of hands-on experience</strong> fixing laptops and desktops.
+        Virus removal, hardware repair, data recovery — done right, done fast, done with pride.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-blue">Get a Free Diagnosis</a>
+        <a href="tel:+17736802671" class="btn btn-outline">📞 Call Now</a>
+      </div>
+
+      <div class="hero-badges">
+        <div class="hero-badge-item"><div class="dot"></div>No Fix, No Fee</div>
+        <div class="hero-badge-item"><div class="dot"></div>Same-Day Service</div>
+        <div class="hero-badge-item"><div class="dot"></div>All Brands Welcome</div>
+      </div>
+    </div>
+
+    <!-- Right panel -->
+    <div class="hero-panel">
+      <div class="hero-card">
+        <div class="hero-card-header">
+          <div class="dots"><span></span><span></span><span></span></div>
+          <span class="hero-card-title">FERTECH EXPERT</span>
+        </div>
+        <div class="hero-card-body">
+          <div class="stat-row">
+            <div class="stat-cell"><div class="stat-n">20+</div><div class="stat-l">Years Expert</div></div>
+            <div class="stat-cell"><div class="stat-n">24H</div><div class="stat-l">Turnaround</div></div>
+            <div class="stat-cell"><div class="stat-n">1HR</div><div class="stat-l">Small Repairs</div></div>
+          </div>
+          <div class="service-list">
+            <div class="service-list-item">
+              <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
+              Virus & Malware Removal
+              <span class="badge-sm">SPECIALTY</span>
+            </div>
+            <div class="service-list-item">
+              <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div>
+              Laptop & Desktop Repair
+            </div>
+            <div class="service-list-item">
+              <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="12" x2="2" y2="12"/><path d="M5.45 5.11L2 12v6a2 2 0 002 2h16a2 2 0 002-2v-6l-3.45-6.89A2 2 0 0016.76 4H7.24a2 2 0 00-1.79 1.11z"/></svg></div>
+              Data Recovery
+            </div>
+            <div class="service-list-item">
+              <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg></div>
+              Performance Upgrades
+            </div>
+          </div>
+        </div>
+        <div class="hero-card-foot">
+          <div class="status-dot"></div>
+          Available Now · Chicago, IL
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ TRUST STRIP ══════════ -->
+<div class="trust">
+  <div class="wrap">
+    <div class="trust-inner">
+      <div class="trust-item">
+        <div class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="t-text"><strong>No Fix, No Fee</strong><span>You don't pay if we can't fix it</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="t-text"><strong>24-Hour Turnaround</strong><span>Most repairs ready next day</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="t-text"><strong>Free Diagnosis</strong><span>Know the problem before you pay</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="t-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <div class="t-text"><strong>Honest Pricing</strong><span>Upfront quotes, no surprises</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SERVICES ══════════ -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="services-head reveal">
+      <div class="tag">What We Fix</div>
+      <h2 class="section-title">Every Repair. Every Device.</h2>
+      <p class="section-sub">Two decades of experience means I've fixed it all — from a simple tune-up to a complex motherboard swap. If it's broken, bring it in.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="svc-card reveal" style="transition-delay:0.05s">
+        <span class="svc-badge hot">SPECIALTY</span>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
+        <div class="svc-title">Virus & Malware Removal</div>
+        <div class="svc-desc">Deep cleaning of all viruses, spyware, ransomware, and malicious software. Your system fully restored and protected.</div>
+      </div>
+
+      <div class="svc-card reveal" style="transition-delay:0.1s">
+        <span class="svc-badge fast">24H SERVICE</span>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div>
+        <div class="svc-title">Laptop & Desktop Repair</div>
+        <div class="svc-desc">Screens, keyboards, motherboards, charging ports, power issues — all brands, all makes. Full hardware diagnostics included.</div>
+      </div>
+
+      <div class="svc-card reveal" style="transition-delay:0.15s">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></div>
+        <div class="svc-title">Performance Upgrades</div>
+        <div class="svc-desc">RAM upgrades, SSD installations, thermal paste replacement. Turn a sluggish machine into something that runs like new.</div>
+      </div>
+
+      <div class="svc-card reveal" style="transition-delay:0.2s">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="12" x2="2" y2="12"/><path d="M5.45 5.11L2 12v6a2 2 0 002 2h16a2 2 0 002-2v-6l-3.45-6.89A2 2 0 0016.76 4H7.24a2 2 0 00-1.79 1.11z"/></svg></div>
+        <div class="svc-title">Data Recovery</div>
+        <div class="svc-desc">Lost files, crashed drives, accidental deletion — I dig deep to recover your important documents, photos, and memories.</div>
+      </div>
+
+      <div class="svc-card reveal" style="transition-delay:0.25s">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
+        <div class="svc-title">Network & WiFi Setup</div>
+        <div class="svc-desc">Slow internet, dropped connections, router configuration — I get your network running fast and stable throughout your home or office.</div>
+      </div>
+
+      <div class="svc-card reveal" style="transition-delay:0.3s">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="6" width="18" height="12" rx="2"/><line x1="23" y1="13" x2="23" y2="11"/></svg></div>
+        <div class="svc-title">Battery Replacement</div>
+        <div class="svc-desc">High-quality replacement batteries for all major laptop brands. Back to a full charge — like you just opened the box.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PROCESS ══════════ -->
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="process-head reveal">
+      <div class="tag">How It Works</div>
+      <h2 class="section-title">Simple. Fast. Honest.</h2>
+      <p class="section-sub">No surprises, no runaround. Here's exactly what happens when you bring your device in.</p>
+    </div>
+    <div class="process-track">
+      <div class="step reveal" style="transition-delay:0.05s">
+        <div class="step-num">1</div>
+        <div class="step-title">Bring It In</div>
+        <div class="step-desc">Drop off your device any time. No appointment needed — walk right in.</div>
+      </div>
+      <div class="step reveal" style="transition-delay:0.15s">
+        <div class="step-num">2</div>
+        <div class="step-title">Free Diagnosis</div>
+        <div class="step-desc">I find exactly what's wrong and give you a clear, upfront quote. No charge just to look.</div>
+      </div>
+      <div class="step reveal" style="transition-delay:0.25s">
+        <div class="step-num">3</div>
+        <div class="step-title">Expert Repair</div>
+        <div class="step-desc">Work starts immediately. Small issues can be done within the hour. Most repairs in 24 hours.</div>
+      </div>
+      <div class="step reveal" style="transition-delay:0.35s">
+        <div class="step-num">4</div>
+        <div class="step-title">Pick It Up</div>
+        <div class="step-desc">I call when it's ready. You pick it up working perfectly — or you don't pay a cent.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ABOUT ══════════ -->
+<section class="about" id="about">
+  <div class="wrap about-inner">
+
+    <div class="about-card reveal">
+      <div class="about-card-top">
+        <div class="about-avatar">F</div>
+        <div class="about-name">FERTECH</div>
+        <div class="about-role">Professional Computer Tech</div>
+      </div>
+      <div class="about-card-body">
+        <div class="about-skills">
+          <span class="skill-tag">Virus Removal</span>
+          <span class="skill-tag">Hardware Repair</span>
+          <span class="skill-tag">Data Recovery</span>
+          <span class="skill-tag">Upgrades</span>
+          <span class="skill-tag">Networking</span>
+          <span class="skill-tag">Diagnostics</span>
+        </div>
+        <div class="about-rating">
+          <div class="stars-row">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="about-rating-text"><strong>5.0</strong> · Trusted by Chicago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-content reveal" style="transition-delay:0.15s">
+      <div class="tag">About Fertech</div>
+      <h2 class="section-title">Passion Meets<br>Precision.</h2>
+      <p>I've been working with computers for over 20 years — not because it's just a job, but because I genuinely love it. There's real satisfaction in taking a broken machine and bringing it back to life.</p>
+      <p>Every device I work on gets the same care and attention I'd give my own. I don't cut corners, I don't upsell things you don't need, and I don't hand back a machine until I'm proud of the result.</p>
+      <p>Based right here in Chicago, I've been helping neighbors, families, and small businesses keep their technology running for decades. Let me help you too.</p>
+      <div class="about-list">
+        <div class="about-list-item">
+          <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Professional-grade tools and genuine quality parts
+        </div>
+        <div class="about-list-item">
+          <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          All major brands serviced — Dell, HP, Lenovo, Apple, Asus & more
+        </div>
+        <div class="about-list-item">
+          <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Transparent pricing — you know the cost before any work begins
+        </div>
+        <div class="about-list-item">
+          <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Same-day repair available for most common issues
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ REVIEWS ══════════ -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="reviews-head reveal">
+      <div class="tag">Customer Reviews</div>
+      <h2 class="section-title">Don't Take My Word For It.</h2>
+      <p class="section-sub" style="margin:0 auto">Real customers, real results. Here's what people in Chicago are saying about Fertech.</p>
+    </div>
+    <div class="reviews-grid">
+
+      <div class="review-card reveal" style="transition-delay:0.05s">
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="review-text">"My laptop was completely taken over by a virus — I thought I'd lost everything. Fertech had it back to me the same afternoon, all my files intact. Couldn't believe it. Incredible service."</p>
+        <div class="review-author">
+          <div class="review-av">M</div>
+          <div><div class="review-name">Maria L.</div><div class="review-loc">Chicago, IL</div></div>
+        </div>
+      </div>
+
+      <div class="review-card reveal" style="transition-delay:0.1s">
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="review-text">"My desktop was so slow I could barely open a browser. After the upgrade it runs like the day I bought it — actually better. The 20+ years of experience really shows. Highly recommend."</p>
+        <div class="review-author">
+          <div class="review-av">J</div>
+          <div><div class="review-name">James R.</div><div class="review-loc">Chicago, IL</div></div>
+        </div>
+      </div>
+
+      <div class="review-card reveal" style="transition-delay:0.15s">
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="review-text">"Fixed my cracked laptop screen in under an hour. I was expecting to wait days. Honest pricing, no upsell, professional all the way. Fertech is the only place I'm going for repairs from now on."</p>
+        <div class="review-author">
+          <div class="review-av">S</div>
+          <div><div class="review-name">Sandra M.</div><div class="review-loc">Chicago, IL</div></div>
+        </div>
+      </div>
+
+      <div class="review-card reveal" style="transition-delay:0.2s">
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="review-text">"Called about a virus at 10am. Had my laptop back working perfectly by noon. I thought that was impossible. Unbelievable turnaround — and a fair price. This is who you call in Chicago."</p>
+        <div class="review-author">
+          <div class="review-av">T</div>
+          <div><div class="review-name">Tony K.</div><div class="review-loc">Chicago, IL</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CONTACT ══════════ -->
+<section class="contact" id="contact">
+  <div class="wrap contact-inner">
+
+    <div class="contact-left reveal">
+      <div class="tag">Get In Touch</div>
+      <h2 class="section-title">Let's Fix It.</h2>
+      <p class="section-sub">Bring your device in, call, or fill out the form. Diagnosis is always free — no commitment, no pressure.</p>
+
+      <div class="contact-info-grid">
+        <a href="tel:+17736802671" class="info-card">
+          <div class="i-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.7A2 2 0 012.18 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.15a16 16 0 006.93 6.93l1.51-1.52a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div class="i-label">Phone</div>
+          <div class="i-val">(773) 680-2671</div>
+        </a>
+
+        <div class="info-card">
+          <div class="i-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="i-label">Location</div>
+          <div class="i-val">Chicago, Illinois</div>
+        </div>
+        <div class="info-card">
+          <div class="i-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="i-label">Hours</div>
+          <div class="i-val">Mon–Sat 9AM–7PM</div>
+        </div>
+      </div>
+
+      <div class="contact-note">
+        <strong>Walk-ins welcome.</strong> No appointment needed — just bring your device and I'll take a look. Free diagnosis means you know exactly what's wrong and what it costs before anything starts.
+      </div>
+    </div>
+
+    <div class="contact-form-box reveal" style="transition-delay:0.15s">
+      <div id="formWrap">
+        <div class="form-heading">Send a Message</div>
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="fg">
+              <label>Your Name</label>
+              <input type="text" required placeholder="John Doe" />
+            </div>
+            <div class="fg">
+              <label>Phone</label>
+              <input type="tel" placeholder="(312) 000-0000" />
+            </div>
+          </div>
+
+          <div class="fg">
+            <label>What's the Problem?</label>
+            <select>
+              <option value="">Select a service...</option>
+              <option>Virus / Malware Removal</option>
+              <option>Laptop or Desktop Repair</option>
+              <option>Performance Upgrade</option>
+              <option>Data Recovery</option>
+              <option>Network / WiFi Issues</option>
+              <option>Battery Replacement</option>
+              <option>Other / Not Sure</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Describe the Issue</label>
+            <textarea rows="4" placeholder="Tell me what's going on — any details help..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Message →</button>
+          <p class="form-fine">Free diagnosis · No commitment required · Reply within hours</p>
+        </form>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <div class="s-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h3>Message Sent!</h3>
+        <p>Thanks for reaching out. I'll get back to you very shortly — usually within a couple of hours.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="footer-logo">FER<span>TECH</span></div>
+    <div class="footer-tagline">Professional Computer Repair · Chicago, Illinois</div>
+    <nav class="footer-nav">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="footer-copy">© 2025 Fertech. All rights reserved. · Chicago, IL</div>
+  </div>
+</footer>
+
+<!-- ══════════ JAVASCRIPT ══════════ -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Sticky nav
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('stuck', window.scrollY > 60);
+});
+
+// Mobile drawer
+const hamBtn = document.getElementById('hamBtn');
+const drawer = document.getElementById('drawer');
+const overlay = document.getElementById('overlay');
+const drawerLinks = document.querySelectorAll('.drawer-link, .drawer-phone');
+
+function openDrawer() { drawer.classList.add('open'); overlay.classList.add('show'); }
+function closeDrawer() { drawer.classList.remove('open'); overlay.classList.remove('show'); }
+
+hamBtn.addEventListener('click', openDrawer);
+overlay.addEventListener('click', closeDrawer);
+drawerLinks.forEach(l => l.addEventListener('click', closeDrawer));
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); } });
+}, { threshold: 0.12 });
+reveals.forEach(el => revealObserver.observe(el));
+
+// Smooth scroll for all anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// Contact form
+document.getElementBy
